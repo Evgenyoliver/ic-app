@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="simpleApp">
+<head>
+    <meta charset="UTF-8">
+    <title>IC Angular</title>
+    
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="css/app.css">
+    
+    <script src="bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript">
+        
+        var simpleApp = angular.module('simpleApp', []);
+        
+        simpleApp.controller('EmpList', function() {
+            this.active = 0;
+            this.employeers = employeers;
+            
+            this.activate = function(value) {
+                this.active = value | 0;
+            };
+            
+            this.isActive = function(value) {
+                return this.active === value;
+            };
+        });
+        
+        var employeers = [{'name': 'Evgeny', 'age': 24, 'sex': 'male'},
+                          {'name': 'Anna', 'age': 22, 'sex': 'female'}
+        ];
+    </script>
+</head>
+<body>   
+   <div ng-controller="EmpList as empl">
+       <div class="employeer" ng-repeat="employeer in empl.employeers">
+           <h2>{{employeer.name}}</h2>
+           <h3>Age: {{employeer.age}}</h3>
+           <button ng-click="employeer.v
+       </div>
+   </div>
+</body>
+</html>
